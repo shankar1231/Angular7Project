@@ -1,0 +1,8 @@
+.display-list-of-numbers {
+    height: 30px;
+    width: 100%;
+    border: 2px solid dodgerblue;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }

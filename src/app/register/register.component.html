@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="jumbotron myJumbotron">
+     
+      <form [formGroup]="regForm" (ngSubmit) = "regFormData()">
+      
+        <h3 class="text-primary text-center">User Registration Form</h3>
+        <div [ngClass]="{'form-group':true}">
+          <label for="userName">User Name</label>
+          <input type="text" placeholder="user Name" class="form-control form-control-danger" formControlName = "userName">
+          <!-- validation messages -->
+          <div *ngIf="submitted && regForm.get('userName').errors">
+              <!-- !regForm.get('userName').valid && (regForm.get('userName').touched || regForm.get('userName').dirty) -->
+            <div *ngIf="regForm.get('userName')['errors']['required']">
+                <small class="form-text text-danger">User Name Required</small>
+            </div>  
+            <div *ngIf="regForm.get('userName')['errors']['minlength']">
+                <small class="form-text text-danger">User Name Minimum 3 charaters Required</small>
+            </div>  
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="userEmail">User Email</label>
+          <input type="email" placeholder="user Name"  class="form-control" formControlName = "userEmail">
+        </div>
+      
+        <div class="form-group">
+          <label for="userEmail">User Mobile</label>
+          <input type="number" placeholder="user Mobile"  class="form-control" formControlName = "userMobile">
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <label for="userPwd">User Password</label>
+              <input type="text" placeholder="user Password"  class="form-control" formControlName = "userPwd">
+              <!-- validation messages -->
+              <div *ngIf="submitted && regForm.get('userPwd').errors">
+                  <!-- !regForm.get('userPwd').valid && (regForm.get('userPwd').touched || regForm.get('userPwd').dirty) -->
+                  <div *ngIf="regForm.get('userPwd')['errors']['required']">
+                      <small class="form-text text-danger">Password Required</small>
+                  </div>   
+                  <div *ngIf="regForm.get('userPwd')['errors']['pattern']">
+                    <small class="form-text text-danger">at least one number, one lowercase and one uppercase letter & at least six characters</small>
+                  </div>  
+                </div>
+            </div>
+          </div> 
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <label for="userConfirmPwd">Confirm Password</label>
+              <input type="text" placeholder="Confirm Password"  class="form-control" formControlName = "userConfirmPwd">
+              <!-- validation messages -->
+              <div *ngIf="submitted && regForm.get('userConfirmPwd').errors">
+                  <!-- !regForm.get('userConfirmPwd').valid && (regForm.get('userConfirmPwd').touched || regForm.get('userConfirmPwd').dirty) -->
+                <div *ngIf="regForm.get('userConfirmPwd')['errors']['required']">
+                    <small class="form-text text-danger">ConfirmPassword Required</small>
+                </div>   
+                <div *ngIf="regForm.get('userConfirmPwd')['errors']['notMatch']">
+                  <small class="form-text text-danger">Passwords must match</small>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+        <div class="form-group">
+          <label for="">Countries</label>
+          <select name="countriesList"  class="form-control" formControlName = "countries">
+            <option *ngFor="let countries of  countriesList">{{countries.countryName}}</option>
+          </select>
+          <!-- validation messages -->
+          <div *ngIf="submitted && regForm.get('countries').errors">
+            <div *ngIf="regForm.get('countries')['errors']['required']">
+                <small class="form-text text-danger">country Required</small>
+            </div>    
+          </div>
+        </div>
+      
+        <!-- <div class="form-group" formArrayName="courseArray">
+          <label>Select Course</label><br>
+          <label class="checkbox-inline" *ngFor="let course of regForm.get('courseArray').controls; let i = index">
+            <input type="checkbox" [value] ="courseList[i].courseName" [formControlName]="i"  
+            (change)="checkboxValue($event)">{{courseList[i].courseName}}
+          </label>
+          <div *ngIf="(regForm.get('courseArray').valid)  && 
+          (regForm.get('courseArray').touched ||regForm.get('courseArray').dirty)" style="color:red">
+            <div *ngIf="regForm.get('courseData').hasError('required')">
+              checkbox required
+            </div>
+            <div *ngIf="regForm.get('courseData').hasError('minimumTwo')">
+              minimum 2 required
+            </div>
+          </div>
+        </div> -->
+      
+      
+        <div class="form-group">
+          <label for="">Select Gender</label><br>
+          <label class="radio-inline"><input type="radio" formControlName="optradio" value="Male"> Male</label>  &nbsp;
+          <label class="radio-inline"><input type="radio" formControlName="optradio" value="Female"> Female</label>  &nbsp;
+          <label class="radio-inline"><input type="radio" formControlName="optradio" value="Other"> Other</label>  &nbsp;
+        </div>
+
+        <div class="form-group">
+          <label class="radio-inline"><input type="checkbox" formControlName="termsConditions"> Accept Terms and Conditions</label> 
+          <div *ngIf="submitted && regForm.get('termsConditions').errors">
+            <div *ngIf="submitted && regForm.get('termsConditions')['errors']['required']">
+              <small class="form-text text-danger">
+                Accept Terms and Conditions required
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+        </div>
+      </form>
+     
+      
+    </div>  
+  </div>
+</div>
+
+
+<!-- <div *ngIf="sucessMsg">
+  {{sucessMsg}}
+</div>
+<div *ngIf="errorMsg">
+  {{errorMsg}}
+</div> -->
+<!-- <ul>
+  <li *ngFor = "let myItem of myLocastorageData">
+    {{myItem.userEmail}} - {{myItem.userPassword}}
+  </li>
+</ul> -->

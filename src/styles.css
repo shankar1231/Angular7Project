@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import '~ngx-toastr/toastr';
+html,body{font-family: 'Poppins', sans-serif!important;font-size:15px;}
+/* form styles */
+.sectionStyles{background: #fff;padding: 30px;box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.28);}
+.form-control{height:40px!important;border-radius:0px!important}
+.form-control:focus{box-shadow:none!important}
+.startButton{background: #9C27B0;border: 1px solid #9C27B0;}
+.myJumbotron{padding:2rem 2rem} 
+

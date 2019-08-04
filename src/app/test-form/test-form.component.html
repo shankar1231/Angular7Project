@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="jumbotron myJumbotron">
+      <form [formGroup]="testForm" (ngSubmit) = "testFormData()">
+        <h3 class="text-primary text-center">User Test Form</h3>
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input type="text" placeholder="user Name"  class="form-control" 
+          formControlName = "userName">
+        </div>
+        <div class="form-group">
+          <label for="userLoginPassword">Gender &nbsp; </label>
+            <span *ngFor="let item of genderButtons">
+              <input type="radio" formControlName="gender" value="{{item.gender}}"  
+              (change)="onItemChange(item.gender)"/> 
+              {{item.gender}}
+            </span>
+        </div>
+        <div *ngIf="radioButtonSeleted('Male')">
+          <div class="form-group">
+            <label for="">Select Country</label>
+            <select formControlName="country" id="" class="form-control">
+              <option [value]="">Select Country</option>
+              <option  *ngFor="let country of countriesList">{{country.countryName}}</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="radioButtonSeleted('FeMale')">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" placeholder="City Name"  class="form-control" 
+            formControlName = "city">
+          </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>  
+  </div>
+</div>
+

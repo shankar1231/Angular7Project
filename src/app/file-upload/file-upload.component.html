@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <h2> file upload Form </h2>
+<div class='row'>
+  
+  <div class='col-md-4 col-md-offset-4'>
+<form #form="ngForm" (submit)="submitform(form.value)" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="exampleInputEmail1"> Product name </label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name='pname' ngModel placeholder="Product name">
+      </div>
+      <div class="form-group">
+          <label for="exampleInputEmail1"> Product Price </label>
+          <input type="number" class="form-control" id="exampleInputEmail1" name='price' ngModel placeholder="Product Price">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1"> Items </label>
+            <input type="number" class="form-control" id="exampleInputEmail1" name='items' ngModel placeholder="Product Items">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1"> Details </label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name='details' ngModel placeholder="Details">
+          </div>            
+        <div class="form-group">
+            <label for="exampleInputEmail1"> Image </label>
+            <input type="file" class="form-control" id="exampleInputEmail1" name='image' 
+            ngModel placeholder="Email" (change)="uploadfile($event)" multiple>
+          </div>
+          <img src="" #imageData width="200" style="display:none;" />
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+</div>

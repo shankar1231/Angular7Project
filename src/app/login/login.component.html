@@ -1,0 +1,35 @@
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="jumbotron myJumbotron">
+        <form [formGroup]="loginForm" (ngSubmit) = "loginFormData()">
+          <h3 class="text-primary text-center">User Login Form</h3>
+          <div class="form-group">
+            <label for="userLoginEmail">User Email</label>
+            <input type="email" placeholder="user Email"  class="form-control" formControlName = "userLoginEmail">
+            <!-- validation messages -->
+            <div *ngIf = "submitted && loginForm.get('userLoginEmail').errors">
+              <div *ngIf="submitted && loginForm.get('userLoginEmail')['errors']['required']">
+                <small class="text-danger">User Email is Required</small>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userLoginPassword">User Password</label>
+            <input type="password" placeholder="user Password"  class="form-control" formControlName = "userLoginPassword">
+            <!-- validation messages -->
+            <div *ngIf = "submitted && loginForm.get('userLoginPassword').errors">
+                <div *ngIf="submitted && loginForm.get('userLoginPassword')['errors']['required']">
+                  <small class="text-danger">User Password is Required</small>
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <button class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>  
+    </div>
+  </div>
+ 
+  
+
