@@ -22,18 +22,16 @@ export class ProductFormComponent implements OnInit {
         productPrice : [res['productPrice'],Validators.required]
       })
      })
-    }
+    } 
     else{
       this.productForm = this.fb.group({
         productTitle : ['',Validators.required],
         productPrice : ['',Validators.required]
       })
     }
-    
   }
   public submitted : boolean = false;
   productFormData(){
     this.dataService.postProductsData(this.productForm.value).subscribe(res => console.log(res))
   }
 }
-

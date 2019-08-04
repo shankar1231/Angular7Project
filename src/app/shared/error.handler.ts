@@ -21,9 +21,6 @@ export class GlobalErrorHandler implements HttpInterceptor{
                 }
             })
         }
-        // setHeaders :{
-        //     Authorization :`Bearer ${token}`
-        // }
         return next.handle(req)
         .pipe(
             catchError( (error: HttpErrorResponse) =>{
@@ -33,7 +30,8 @@ export class GlobalErrorHandler implements HttpInterceptor{
                     errorMsg = `Error: ${error.error.message}`;
                }
                else{
-                    errorMsg = `Error Code: ${error.status},  Message: ${error.message} , errorObject : ${error}`;
+                    errorMsg = `Error Code: ${error.status},  Message: ${error.message} , 
+                    errorObject : ${error}`;
                }
                 return throwError(errorMsg)
             })
